@@ -1,0 +1,20 @@
+<h1>Edit <%= @task.title %></h1>
+<%= form_for(@task) do |f| %>
+  <%= f.label :title %>
+  <%= f.text_field :title %>
+
+  <%= f.label :details %>
+  <%= f.text_field :details %>
+
+  <%= f.submit %>
+<% end %>
+
+<%= form_for(@task) do |f| %>
+
+  <%= f.hidden_field :completed, value: true %>
+  <%= f.submit "Mark as done" %>
+<% end %>
+
+<%= link_to "Delete", delete_path(@task), method: :delete, data: { confirm: "Are you sure?" } %>
+
+<%= link_to "Go back", index_path %>
